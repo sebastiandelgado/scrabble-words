@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>File drop</title>
+  </head>
+
+  <body>
+    <p>Upload a text file with words separated by newlines</p>
+    <input type="file" id="your-files" multiple>
+    <p>This will generate a JSON object that will be saved at</p>
+    <script src="Trie.js"></script>
+    <script>
+      var control = document.getElementById("your-files");
+      control.addEventListener("change", function(event) {
+        var file = control.files[0];
+        var reader = new FileReader();
+        reader.onload = function() {
+          var allWords = this.result.split(/\n/);
+          var t = new Trie();
+          for (var i = 0; i < allWords.length; i++) {
+            t.insert(allWords[i]);
+          }
+          alert(JSON.stringify(t));
+          // do stuff to create/save the trie
+          // the text file is saved at this.result
+        }
+        reader.readAsText(file);
+
+      }, false);
+
+      var parseDictionary = function readTextFile(filepath){
+
+      };
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Mocha Spec Runner</title>
+  <link rel="stylesheet" href="lib/mocha/mocha.css">
+  <script src="lib/jquery.js"></script>
+  <script src="lib/underscore.js"></script>
+  <script src="lib/mocha/mocha.js"></script>
+  <script src="lib/chai/chai.js"></script>
+  <script>
+    mocha.setup('bdd');
+    var expect = chai.expect;
+    $(mocha.run);
+  </script>
+  <script src="src/Trie.js"></script>
+  <script src="src/generateTrie.js"></script>
+  <script src="src/findScrabbleWords.js"></script>
+  <script src="spec/TrieSpec.js"></script>
+  <script src="spec/findScrabbleWordsSpec.js"></script>
+</head>
+<body>
+<div id="mocha"></div>
+</body>
+</html>
